@@ -210,38 +210,3 @@ footer {
 }
 
 /* Scroll animation handled by JS */
-
-
-
-.project-detail {
-  max-width: 900px;
-  margin: 0 auto 4rem;
-  padding: 0 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  color: #ddd;
-}
-
-.project-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  width: 100%;
-}
-
-.project-image {
-  flex: 1 1 300px;
-  max-width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #8a2be2;
-  object-fit: cover;
-}
-
-.project-description {
-  flex: 1 1 400px;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #ccc;
-}
-

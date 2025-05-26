@@ -15,13 +15,3 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
-window.addEventListener("DOMContentLoaded", () => {
-  const projectContent = document.querySelector(".project-detail");
-  if (projectContent) {
-    projectContent.style.opacity = 0;
-    projectContent.style.transition = "opacity 1s ease-in-out";
-    setTimeout(() => {
-      projectContent.style.opacity = 1;
-    }, 100);
-  }
-});
