@@ -8,16 +8,18 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <h1>Altonez</h1>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#chi-sono">Chi Sono</a></li>
-      <li><a href="#lavori">Lavori</a></li>
-      <li><a href="#skills">Competenze</a></li>
-      <li><a href="#contatti">Contattami</a></li>
-    </ul>
-  </nav>
+    <nav>
+      <a href="/" class="logo-link">
+        <img src="vinile.jpg" alt="Logo" class="logo">
+      </a>
+      <ul>
+        <li><a href="#chi-sono">Chi Sono</a></li>
+        <li><a href="#lavori">lavori</a></li>
+        <li><a href="#recensioni">Recensioni</a></li>
+        <!-- Ecco la modifica qui: il link Contatti punta alla pagina contatti.html -->
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
 
   <header id="home">
     <div class="banner-container">
@@ -37,38 +39,37 @@
     </div>
   </section>
 
- <section id="lavori">
-  <h2>I miei lavori</h2>
-  <div class="gallery">
-    <a href="vinile.html" class="card">
-      <img src="vinile.jpg" alt="Vinile Artistico" />
-      <div class="info">
-        <h3>Vinile remake XDVR</h3>
-        <p>Un progetto che fonde astrazione e nostalgia per rappresentare l'identità sonora dell'artista.</p>
+  <section id="lavori">
+    <h2>I miei lavori</h2>
+    <div class="gallery">
+      <a href="vinile.html" class="card">
+        <img src="vinile.jpg" alt="Vinile Artistico" />
+        <div class="info">
+          <h3>Vinile remake XDVR</h3>
+          <p>Un progetto che fonde astrazione e nostalgia per rappresentare l'identità sonora dell'artista.</p>
+        </div>
+      </a>
+      <div class="card">
+        <img src="mockup.png" alt="Vinile Mockup" />
+        <div class="info">
+          <h3>Vinile Mockup XDVR</h3>
+          <p>Design tipografico essenziale e moderno, pensato per diversi supporti: da vinili a contenuti digitali.</p>
+        </div>
       </div>
-    </a>
-    <div class="card">
-      <img src="mockup.png" alt="Vinile Mockup" />
-      <div class="info">
-        <h3>Vinile Mockup XDVR</h3>
-        <p>Design tipografico essenziale e moderno, pensato per diversi supporti: da vinili a contenuti digitali.</p>
+      <div class="card">
+        <img src="logo.png" alt="Logo immagine" />
+        <div class="info">
+          <h3>Logo a caso</h3>
+          <p>Immagine evocativa in stile vaporwave con accenti blu e viola per trasmettere l'essenza elettronica del progetto musicale.</p>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <img src="logo.png" alt="Logo immagine" />
-      <div class="info">
-        <h3>Logo a caso</h3>
-        <p>Immagine evocativa in stile vaporwave con accenti blu e viola per trasmettere l'essenza elettronica del progetto musicale.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <section id="skills">
     <h2>Software che utilizzo</h2>
     <p>Utilizzo i principali software Adobe per dare vita ai miei progetti grafici, ognuno con uno scopo preciso nel workflow creativo.</p>
-    <br></br>
+    <br />
     <div class="software-icons">
       <div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" title="Adobe Photoshop" />
@@ -89,10 +90,57 @@
     </div>
   </section>
 
-  <section id="contatti">
-    <h2>Contattami</h2>
-    <p>Hai un progetto musicale o visivo? Scrivimi a <strong>altonez@gmail.com</strong></p>
+  <!-- SEZIONE RECENSIONI -->
+  <section id="recensioni">
+    <h2>Recensioni</h2>
+    <div class="review-slider">
+      <div class="review-slider-inner">
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/60?img=12" alt="Foto recensione 1" />
+          <div class="review-text">
+            <h4>Mario Rossi</h4>
+            <p>Ottimo lavoro, preciso e creativo! Consigliatissimo.</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/60?img=32" alt="Foto recensione 2" />
+          <div class="review-text">
+            <h4>Anna Bianchi</h4>
+            <p>Professionale e puntuale, super soddisfatta del risultato.</p>
+            <div class="stars">★★★★☆</div>
+          </div>
+        </div>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/60?img=45" alt="Foto recensione 3" />
+          <div class="review-text">
+            <h4>Luca Verdi</h4>
+            <p>Consiglio vivamente per qualità e cortesia.</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/60?img=27" alt="Foto recensione 4" />
+          <div class="review-text">
+            <h4>Giulia Neri</h4>
+            <p>Esperienza fantastica, sempre disponibile e preparato.</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/60?img=52" alt="Foto recensione 5" />
+          <div class="review-text">
+            <h4>Marco Bassi</h4>
+            <p>Rapido e preciso, qualità altissima.</p>
+            <div class="stars">★★★★☆</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- SEZIONE CONTATTAMI -->
+  <!-- La sezione contatti la togliamo da qui, ora sarà nella pagina contatti.html -->
 
   <footer>
     &copy; 2025 - altonez - Portfolio Grafico 
