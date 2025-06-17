@@ -1,151 +1,806 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Altonez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piano Marketing e Sponsorizzazione - Mirano 7s League</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: white;
+    font-size: 11pt;
+}
+.document {
+    max-width: 21cm;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+.page {
+    min-height: 29.7cm;
+    padding: 2.5cm;
+    page-break-after: always;
+    background: white;
+}
+.page:last-child {
+    page-break-after: auto;
+}
+/* Header Styles */
+.document-header {
+    border-bottom: 3px solid #22543d; /* Verde Scuro */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.document-title {
+    font-size: 28pt;
+    font-weight: 700;
+    color: #22543d; /* Verde Scuro */
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+.document-subtitle {
+    font-size: 16pt;
+    color: #4a5568;
+    font-weight: 400;
+}
+.section-header {
+    background: #22543d; /* Verde Scuro */
+    color: white;
+    padding: 15px 20px;
+    margin: 0 -2.5cm 25px -2.5cm;
+    font-size: 18pt;
+    font-weight: 600;
+}
+.section-title {
+    font-size: 16pt;
+    font-weight: 600;
+    color: #22543d; /* Verde Scuro */
+    margin: 25px 0 15px 0;
+    border-left: 4px solid #48bb78; /* Verde Chiaro Accento */
+    padding-left: 12px;
+}
+.subsection-title {
+    font-size: 14pt;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 20px 0 10px 0;
+}
+/* Layout Grids */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 15px 0;
+}
+.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 15px 0;
+}
+/* Card Styles */
+.info-card {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+}
+.info-card h4 {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #22543d; /* Verde Scuro */
+    margin-bottom: 10px;
+}
+.info-card p, .info-card li {
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #4a5568;
+}
+.info-card ul {
+    list-style-type: disc;
+    padding-left: 18px;
+}
+.info-card li {
+    margin-bottom: 4px;
+}
+/* Sponsor Package Cards */
+.sponsor-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+.sponsor-card.premium {
+    border-color: #ECC94B; /* Oro/Giallo per Premium */
+    background: linear-gradient(135deg, #fefce8 0%, #ffffff 100%); /* Sfondo più chiaro per premium */
+}
+.sponsor-card h4 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #22543d; /* Verde Scuro */
+    margin-bottom: 10px;
+}
+.sponsor-card .price {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #48bb78; /* Verde Chiaro Accento */
+    margin-bottom: 15px;
+}
+.sponsor-card.premium .price {
+    color: #D69E2E; /* Oro più deciso per il prezzo premium */
+}
+.sponsor-card ul {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+}
+.sponsor-card li {
+    font-size: 9pt;
+    padding: 4px 0;
+    padding-left: 15px;
+    position: relative;
+}
+.sponsor-card li::before {
+    content: "•";
+    color: #48bb78; /* Verde Chiaro Accento */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+/* Table Styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 10pt;
+}
+.data-table th {
+    background: #22543d; /* Verde Scuro */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+.data-table td {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+}
+.data-table tr:nth-child(even) {
+    background: #f7fafc;
+}
+/* Budget Chart */
+.budget-visual {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 8px;
+}
+.chart-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        #48bb78 0deg 144deg, /* Campo e Logistica - Verde Chiaro Accento */
+        #E53E3E 144deg 216deg, /* Assicurazione e Permessi - Rosso (contrasto) */
+        #38a169 216deg 288deg, /* Materiali e Premi - Verde Medio */
+        #D69E2E 288deg 360deg  /* Marketing e Imprevisti - Arancione (contrasto) */
+    );
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chart-center {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #22543d; /* Verde Scuro */
+    font-size: 10pt;
+}
+.legend {
+    flex: 1;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 10pt;
+}
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+/* Timeline */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #48bb78; /* Verde Chiaro Accento */
+}
+.timeline-item {
+    position: relative;
+    padding: 10px 0 10px 50px;
+    margin-bottom: 15px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #48bb78; /* Verde Chiaro Accento */
+}
+.timeline-content {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid #48bb78; /* Verde Chiaro Accento */
+}
+.timeline-title {
+    font-weight: 600;
+    color: #22543d; /* Verde Scuro */
+    margin-bottom: 5px;
+    font-size: 11pt;
+}
+.timeline-description {
+    font-size: 10pt;
+    color: #4a5568;
+    line-height: 1.4;
+}
+/* Statistics Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: #22543d; /* Verde Scuro */
+    color: white;
+    border-radius: 8px;
+}
+.stat-number {
+    font-size: 24pt;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+.stat-label {
+    font-size: 9pt;
+    opacity: 0.9;
+}
+/* Contact Information */
+.contact-info {
+    background: #edf2f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+.contact-info h4 {
+    color: #22543d; /* Verde Scuro */
+    margin-bottom: 10px;
+    font-size: 12pt;
+}
+.contact-info p {
+    font-size: 10pt;
+    line-height: 1.6;
+    color: #4a5568;
+}
+/* Print Optimization */
+@media print {
+    body {
+        background: white;
+        font-size: 10pt;
+    }
+    .document {
+        box-shadow: none;
+        max-width: none;
+    }
+    .page {
+        padding: 2cm;
+        page-break-after: always;
+    }
+    .page:last-child {
+        page-break-after: auto;
+    }
+}
+/* Print Button */
+.print-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #48bb78; /* Verde Chiaro Accento */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 11pt;
+    font-weight: 600;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.print-button:hover {
+    background: #38a169; /* Verde leggermente più scuro al passaggio del mouse */
+}
+@media print {
+    .print-button {
+        display: none;
+    }
+}
+</style>
 </head>
 <body>
-    <nav>
-      <a href="/" class="logo-link">
-        <img src="vinile.jpg" alt="Logo" class="logo">
-      </a>
-      <ul>
-        <li><a href="#chi-sono">Chi Sono</a></li>
-        <li><a href="#lavori">lavori</a></li>
-        <li><a href="#recensioni">Recensioni</a></li>
-        <!-- Ecco la modifica qui: il link Contatti punta alla pagina contatti.html -->
-        <li><a href="contatti.html">Contatti</a></li>
-      </ul>
-    </nav>
-
-  <header id="home">
-    <div class="banner-container">
-      <img src="logo.png" alt="Banner Portfolio" class="banner-img" />
+<button class="print-button" onclick="window.print()">Stampa PDF</button>
+<div class="document">
+    <!-- Pagina 1: Copertina e Obiettivi -->
+    <div class="page">
+        <div class="document-header">
+            <div class="document-title">MIRANO 7s LEAGUE</div>
+            <div class="document-subtitle">Piano Marketing e Sponsorizzazione</div>
+        </div>
+        <div class="section-title">Obiettivi del Progetto</div>
+        <div class="info-card">
+            <h4>Obiettivo Principale</h4>
+            <p>Organizzare e promuovere la prima edizione del torneo giovanile <strong>Mirano 7s League</strong> per ragazzi di <strong>14-18 anni</strong>, creando un evento sportivo di qualità che coinvolga attivamente la comunità locale e i giovani del territorio, promuovendo i valori dello sport e della socialità.</p>
+        </div>
+        <div class="two-column">
+            <div class="info-card">
+                <h4>Impatto Sociale</h4>
+                <ul>
+                    <li>Rivitalizzare il quartiere Campocroce attraverso lo sport</li>
+                    <li>Promuovere l'aggregazione giovanile e il fair play</li>
+                    <li>Creare momenti di condivisione comunitaria</li>
+                    <li>Valorizzare gli spazi urbani esistenti</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Sostenibilità Economica</h4>
+                <ul>
+                    <li>Coprire i costi organizzativi con un modello snello</li>
+                    <li>Costruire una base di sponsor locali fedeli</li>
+                    <li>Garantire la continuità del progetto nel tempo</li>
+                    <li>Generare un piccolo surplus per reinvestimenti futuri</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-title">Target e Metriche Attese</div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">16</span>
+                <span class="stat-label">Squadre Partecipanti</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Giovani Coinvolti</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">300-500+</span>
+                <span class="stat-label">Spettatori Attesi (specialmente alla sagra)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">Visibilità</span>
+                <span class="stat-label">Riconoscimento Territoriale</span>
+            </div>
+        </div>
+        <div class="section-title">Valore Aggiunto del Progetto</div>
+        <div class="info-card">
+            <h4>Differenziazione Competitiva</h4>
+            <ul>
+                <li>Focus specifico sui <strong>giovani (14-18 anni)</strong> come protagonisti attivi</li>
+                <li>Connessione diretta e profonda con il territorio di Campocroce</li>
+                <li>Approccio community-driven all'organizzazione sportiva</li>
+                <li>Modello replicabile e scalabile per altri quartieri</li>
+                <li>Integrazione tra sport, socialità e festa di paese (sagra)</li>
+            </ul>
+        </div>
     </div>
-    <h2 class="glow-title">Portfolio Creativo</h2>
-    <p>Design per vinili, copertine musicali e loghi professionali</p>
-  </header>
 
-  <section id="chi-sono">
-    <h2>Chi sono</h2>
-    <div class="chi-sono-wrapper">
-      <p>
-        Sono un designer grafico specializzato nel mondo musicale. Creo copertine per album, design per vinili e loghi che riflettono l'identità unica di ogni artista. La mia missione è fondere l'estetica visiva con l'emozione sonora per dare vita a progetti autentici e memorabili.
-      </p>
-      <img src="logo.png" alt="La mia foto" class="profile-photo" />
+    <!-- Pagina 2: Strategia Marketing -->
+    <div class="page">
+        <div class="section-header">STRATEGIA MARKETING E COMUNICAZIONE</div>
+        <div class="section-title">Piano di Comunicazione Locale e Digitale</div>
+        <div class="two-column">
+            <div class="info-card">
+                <h4>Strategia di Prossimità</h4>
+                <ul>
+                    <li><strong>Volantini e Locandine:</strong> Distribuzione mirata nelle scuole medie/superiori di Mirano e comuni limitrofi, oratori, centri giovanili, palestre locali.</li>
+                    <li><strong>Bacheche e Affissioni:</strong> Utilizzo delle bacheche comunali e spazi concessi da negozi e associazioni locali.</li>
+                    <li><strong>Passaparola:</strong> Incoraggiare i giovani delle squadre già coinvolte a invitare amici e conoscenti. Il "word-of-mouth" è il più potente per questa fascia d'età e il contesto locale.</li>
+                    <li><strong>Collaborazione Scuole/Associazioni:</strong> Presentazioni brevi e dirette durante le lezioni di educazione fisica o incontri associativi per spiegare il torneo e incoraggiare l'iscrizione.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Comunicazione Digitale (Promozionale e Informativa)</h4>
+                <p>Non verranno aperti profili social dedicati ai partecipanti per la gestione diretta, ma i canali digitali saranno usati per <strong>promuovere l'evento al pubblico più ampio</strong> (genitori, residenti, appassionati di sport).</p>
+                <ul>
+                    <li><strong>Instagram & TikTok (Reels/Shorts):</strong> Creazione di video brevi e dinamici che mostrino l'entusiasmo, l'azione di gioco, i valori del fair play e l'atmosfera divertente del torneo. Contenuti come:
+                        <ul>
+                            <li>Highlight delle partite più belle.</li>
+                            <li>Momenti "dietro le quinte" e preparazione.</li>
+                            <li>Brevi interviste con gli organizzatori o i volontari.</li>
+                            <li>Frammenti della sagra finale con musica e divertimento.</li>
+                        </ul>
+                        L'obiettivo è generare curiosità e attirare spettatori, senza costi di "influencer" o promesse di "successo individuale".
+                    </li>
+                    <li><strong>Pagina Evento Facebook:</strong> Una pagina evento dedicata per condividere informazioni pratiche (date, orari, indirizzi, regolamento), aggiornamenti sui gironi e i risultati, e per fungere da punto di riferimento per il pubblico interessato.</li>
+                    <li><strong>Gruppo WhatsApp/Lista Broadcast:</strong> Per comunicazioni rapide e di servizio con i responsabili delle squadre e i genitori (es. variazioni orari, promemoria).</li>
+                    <li><strong>Album Fotografico Online:</strong> Una raccolta di foto e brevi video dell'evento, accessibile a tutti per rivivere i momenti migliori (es. Google Photos, Flickr).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-title">Partnership e Collaborazioni</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Categoria Partner</th>
+                    <th>Tipologia</th>
+                    <th>Benefici Attesi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Istituzioni Educative</strong></td>
+                    <td>Scuole medie e superiori di Mirano e dintorni</td>
+                    <td>Accesso diretto ai giovani partecipanti, promozione in ambienti scolastici.</td>
+                </tr>
+                <tr>
+                    <td><strong>Figure Sportive Locali</strong></td>
+                    <td>Ex-giocatori, allenatori, dirigenti di associazioni sportive del territorio</td>
+                    <td>Credibilità, passaparola qualificato, coinvolgimento della comunità sportiva. Possono aiutarvi a creare anche contenuti social autentici.</td>
+                </tr>
+                <tr>
+                    <td><strong>Media Tradizionali Locali</strong></td>
+                    <td>Giornali locali, radio comunitarie, blog/siti di informazione locale</td>
+                    <td>Copertura mediatica per raggiungere famiglie e residenti, annunci dell'evento.</td>
+                </tr>
+                <tr>
+                    <td><strong>Associazioni e Parrocchie</strong></td>
+                    <td>Gruppi sportivi, associazioni culturali, oratori</td>
+                    <td>Amplificazione della rete di contatti, aiuto nella diffusione del messaggio e supporto logistico.</td>
+                </tr>
+                <tr>
+                    <td><strong>Organizzatori Sagra Locale</strong></td>
+                    <td>Comitato o Associazione che gestisce la sagra finale</td>
+                    <td>Aumento significativo dell'affluenza di pubblico, gestione servizi cibo/bevande, creazione di un evento finale più ricco.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-title">Timeline Comunicazione Semplificata</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-title">Pre-Lancio (8-6 settimane prima)</div>
+                    <div class="timeline-description">Contatti con scuole e associazioni, preparazione materiali stampati (volantini, locandine), definizione luoghi di affissione, primi contatti con la sagra per la giornata finale. Avvio di una semplice "campagna" di awareness sui social con video teaser.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-title">Fase di Iscrizione (6-2 settimane prima)</div>
+                    <div class="timeline-description">Distribuzione capillare dei materiali, passaparola intensivo, aperture iscrizioni squadre, creazione gruppo WhatsApp/evento FB per comunicazioni di servizio. Pubblicazione di contenuti social che mostrino l'entusiasmo delle squadre che si stanno formando.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-title">Settimana dell'Evento</div>
+                    <div class="timeline-description">Comunicazioni giornaliere sui gironi/orari tramite canali diretti. Pubblicazione di highlights e momenti salienti sui social, per generare interesse e spingere il pubblico a venire a vedere le partite (soprattutto le finali). Gestione logistica con la sagra.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-title">Post-Evento (2 settimane dopo)</div>
+                    <div class="timeline-description">Ringraziamenti a tutti (partecipanti, volontari, sponsor, sagra), condivisione del "best of" foto/video dell'evento sui social, analisi interna per prossima edizione.</div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="lavori">
-    <h2>I miei lavori</h2>
-    <div class="gallery">
-      <a href="vinile.html" class="card">
-        <img src="vinile.jpg" alt="Vinile Artistico" />
-        <div class="info">
-          <h3>Vinile remake XDVR</h3>
-          <p>Un progetto che fonde astrazione e nostalgia per rappresentare l'identità sonora dell'artista.</p>
+    <!-- Pagina 3: Piano Sponsorizzazioni -->
+    <div class="page">
+        <div class="section-header">PIANO SPONSORIZZAZIONI</div>
+        <div class="section-title">Pacchetti Sponsorizzazione (realistici per un evento locale con potenziale di crescita)</div>
+        <div class="three-column">
+            <div class="sponsor-card premium">
+                <h4>MAIN SPONSOR</h4>
+                <div class="price">€500 - €800</div>
+                <ul>
+                    <li>Logo prominente su maglie staff e materiale tecnico principale.</li>
+                    <li>Banner principale posizionato sul campo da gioco.</li>
+                    <li>Menzione speciale e ringraziamento pubblico durante le premiazioni.</li>
+                    <li>Post dedicati con visibilità su Instagram/TikTok dell'evento.</li>
+                    <li>Presenza con piccolo spazio/tavolo alla sagra finale (se concesso dagli organizzatori sagra).</li>
+                    <li>Ringraziamento sui materiali informativi e comunicati stampa locali.</li>
+                    <li>Diritto di prelazione per l'edizione successiva con vantaggi aggiuntivi.</li>
+                </ul>
+            </div>
+            <div class="sponsor-card">
+                <h4>SPONSOR TECNICO</h4>
+                <div class="price">€300 - €500</div>
+                <ul>
+                    <li>Logo su materiali tecnici secondari (es. bottiglie acqua, coni, etc.) o su banner collettivo.</li>
+                    <li>Menzione e ringraziamento pubblico durante l'evento.</li>
+                    <li>Visibilità sulle locandine e volantini distribuiti.</li>
+                    <li>Inclusione in post social collettivi di ringraziamento.</li>
+                    <li>Invito per i rappresentanti alla sagra finale.</li>
+                </ul>
+            </div>
+            <div class="sponsor-card">
+                <h4>SPONSOR LOCALE</h4>
+                <div class="price">€100 - €250</div>
+                <ul>
+                    <li>Logo su banner generale dell'evento.</li>
+                    <li>Inclusione nei ringraziamenti pubblici finali.</li>
+                    <li>Visibilità sulle locandine e volantini distribuiti localmente.</li>
+                    <li>Menzione sui canali di comunicazione di servizio (es. gruppo WhatsApp) e post social collettivi.</li>
+                </ul>
+            </div>
         </div>
-      </a>
-      <div class="card">
-        <img src="mockup.png" alt="Vinile Mockup" />
-        <div class="info">
-          <h3>Vinile Mockup XDVR</h3>
-          <p>Design tipografico essenziale e moderno, pensato per diversi supporti: da vinili a contenuti digitali.</p>
+        <div class="section-title">Target Sponsor Prioritari</div>
+        <div class="two-column">
+            <div class="info-card">
+                <h4>Commercio e Servizi Locali</h4>
+                <ul>
+                    <li>Bar, pizzerie, ristoranti, gelaterie di Mirano e Campocroce.</li>
+                    <li>Negozi di abbigliamento, scarpe, sportivi e casual.</li>
+                    <li>Panifici, pasticcerie, supermercati e piccole botteghe alimentari.</li>
+                    <li>Farmacie, parafarmacie, studi medici e fisioterapici.</li>
+                    <li>Parrucchieri, estetisti, tabaccherie.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Piccole Imprese e Professionisti</h4>
+                <ul>
+                    <li>Artigiani locali (elettricisti, idraulici, falegnami).</li>
+                    <li>Studi professionali (commercialisti, avvocati, geometri).</li>
+                    <li>Agenzie immobiliari o assicurative del territorio.</li>
+                    <li>Officine meccaniche, gommisti.</li>
+                    <li>Associazioni di categoria locali.</li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="card">
-        <img src="logo.png" alt="Logo immagine" />
-        <div class="info">
-          <h3>Logo a caso</h3>
-          <p>Immagine evocativa in stile vaporwave con accenti blu e viola per trasmettere l'essenza elettronica del progetto musicale.</p>
+        <div class="info-card">
+            <h4>Approccio alla Sponsorizzazione (focalizzato sul valore locale)</h4>
+            <ul>
+                <li><strong>Kit Sponsor Essenziale e Chiarezza:</strong> Una breve presentazione cartacea o digitale (PDF) che spieghi chiaramente cos'è il torneo, perché è importante per i giovani e la comunità, e quali sono i pacchetti di visibilità. Senza numeri di "reach" complessi, ma con l'enfasi sul **supporto alla comunità giovanile locale**.</li>
+                <li><strong>Contatto Personale e Relazionale:</strong> Incontrare di persona i titolari delle attività locali. Spiegare l'iniziativa con passione, sottolineando il ritorno di immagine come "amici dei giovani" e l'importanza del loro contributo per la riuscita dell'evento nel quartiere.</li>
+                <li><strong>Flessibilità e Vantaggio Reciproco:</strong> Essere aperti a proposte di sponsorizzazione "non monetarie" (es. fornitura di bevande, buoni sconto per i premi, spazio per affissioni). Chiedere ai potenziali sponsor cosa li interesserebbe ottenere in cambio.</li>
+                <li><strong>Trasparenza e Riconoscenza:</strong> Essere trasparenti sull'uso dei fondi. Dopo l'evento, ringraziare pubblicamente (anche con una piccola menzione sui giornali locali o affissioni) tutti gli sponsor. Fornire loro un semplice report fotografico dell'evento.</li>
+            </ul>
         </div>
-      </div>
     </div>
-  </section>
 
-  <section id="skills">
-    <h2>Software che utilizzo</h2>
-    <p>Utilizzo i principali software Adobe per dare vita ai miei progetti grafici, ognuno con uno scopo preciso nel workflow creativo.</p>
-    <br />
-    <div class="software-icons">
-      <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" title="Adobe Photoshop" />
-        <p><strong>Photoshop:</strong> fotoritocco avanzato e manipolazione visiva.</p>
-      </div>
-      <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator" title="Adobe Illustrator" />
-        <p><strong>Illustrator:</strong> creazione di loghi e grafica vettoriale.</p>
-      </div>
-      <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects" title="Adobe After Effects" />
-        <p><strong>After Effects:</strong> animazioni grafiche e motion design.</p>
-      </div>
-      <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="InDesign" title="Adobe InDesign" />
-        <p><strong>InDesign:</strong> impaginazione editoriale e layout per stampa e digitale.</p>
-      </div>
+    <!-- Pagina 4: Budget e Sostenibilità -->
+    <div class="page">
+        <div class="section-header">GESTIONE ECONOMICA E SOSTENIBILITÀ</div>
+        <div class="section-title">Analisi Budget Dettagliata (stimata per un primo anno con profitto)</div>
+        <div class="budget-visual">
+            <div class="chart-placeholder">
+                <div class="chart-center">€2.250</div> <!-- Totale uscite -->
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #48bb78;"></div>
+                    <strong>Campo e Logistica (40%) - €900</strong><br> Affitto campo, attrezzature tecniche di base, sicurezza, servizi igienici (stima ottimizzata)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #E53E3E;"></div>
+                    <strong>Assicurazione e Permessi (27%) - €600</strong><br> Coperture assicurative obbligatorie, autorizzazioni comunali, SIAE
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #38a169;"></div>
+                    <strong>Materiali e Premi (13%) - €300</strong><br> Medaglie/coppe essenziali, magliette staff (poche), materiale promozionale (flyer/locandine)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #D69E2E;"></div>
+                    <strong>Marketing & Imprevisti (20%) - €450</strong><br> Spese di stampa minime, riserva per piccole emergenze e attività social light
+                </div>
+            </div>
+        </div>
+        <div class="section-title">Proiezioni Finanziarie (Primo Anno - Obiettivo Piccolo Margine Netto)</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Dettaglio</th>
+                    <th>Importo Stimato</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #e6fffa;">
+                    <td><strong>ENTRATE STIMATE</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Main Sponsor</td>
+                    <td>1-2 sponsor principali</td>
+                    <td>€650</td>
+                    <td>Media €650 per sponsor (fascia €500-800)</td>
+                </tr>
+                <tr>
+                    <td>Sponsor Tecnici</td>
+                    <td>2-3 sponsor di medio livello</td>
+                    <td>€800</td>
+                    <td>Media €300-400 ciascuno</td>
+                </tr>
+                <tr>
+                    <td>Sponsor Locali</td>
+                    <td>4-6 sponsor di base</td>
+                    <td>€800</td>
+                    <td>Media €150-200 ciascuno</td>
+                </tr>
+                <tr>
+                    <td>Quote Iscrizione</td>
+                    <td>Contributo simbolico (16 squadre x 12.5€)</td>
+                    <td>€200</td>
+                    <td>Quota per coprire piccola parte costi</td>
+                </tr>
+                <tr>
+                    <td><strong>Altre Entrate (es. Lotteria/Merchandising)</strong></td>
+                    <td>Lotteria a premi semplici / vendita braccialetti</td>
+                    <td>€100</td>
+                    <td>Obiettivo realistico con gestione leggera</td>
+                </tr>
+                <tr style="font-weight: bold; background: #e6fffa;">
+                    <td>TOTALE ENTRATE STIMATE</td>
+                    <td></td>
+                    <td>€2.550</td>
+                    <td>Obiettivo realistico per il primo anno</td>
+                </tr>
+                <tr style="background: #fef5e7;">
+                    <td><strong>USCITE STIMATE</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Campo e Logistica</td>
+                    <td>Affitto, sicurezza, bagni</td>
+                    <td>€900</td>
+                    <td>Costi essenziali (potenziale negoziazione)</td>
+                </tr>
+                <tr>
+                    <td>Assicurazione e Permessi</td>
+                    <td>Coperture, autorizzazioni, SIAE</td>
+                    <td>€600</td>
+                    <td>Costi fissi e inderogabili</td>
+                </tr>
+                <tr>
+                    <td>Materiali e Premi</td>
+                    <td>Medaglie, coppe, maglie staff essenziali</td>
+                    <td>€300</td>
+                    <td>Budget ridotto all'essenziale</td>
+                </tr>
+                <tr>
+                    <td>Marketing e Stampa</td>
+                    <td>Volantini, locandine, badge staff, gestione social (tempo)</td>
+                    <td>€150</td>
+                    <td>Spese promozionali di base aumentate per attività social</td>
+                </tr>
+                <tr>
+                    <td>Imprevisti</td>
+                    <td>Riserva per piccole spese non previste (8%)</td>
+                    <td>€300</td>
+                    <td>Margine di sicurezza più robusto</td>
+                </tr>
+                <tr style="font-weight: bold; background: #fef5e7;">
+                    <td>TOTALE USCITE STIMATE</td>
+                    <td></td>
+                    <td>€2.250</td>
+                    <td></td>
+                </tr>
+                <tr style="font-weight: bold; background: #f0fff4;">
+                    <td>MARGINE NETTO STIMATO</td>
+                    <td></td>
+                    <td>€300</td>
+                    <td>~11.7% - Utilizzabile per reinvestimento futuro o buffer</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-title">Strategia di Sostenibilità</div>
+        <div class="two-column">
+            <div class="info-card">
+                <h4>Obiettivi Anno 1 (Fondazione con Margine)</h4>
+                <ul>
+                    <li><strong>Raggiungimento di un Margine Netto Positivo:</strong> L'obiettivo è generare un piccolo surplus per avviare un fondo per le edizioni future.</li>
+                    <li><strong>Costruzione di Relazioni Solide:</strong> Creare un network di sponsor locali e partner (scuole, sagra) che credano nel progetto a lungo termine.</li>
+                    <li><strong>Creazione di un Evento Riconosciuto:</strong> Far sì che il torneo diventi un appuntamento atteso e apprezzato dai giovani e dalle famiglie di Mirano.</li>
+                    <li><strong>Definizione di Processi Semplici:</strong> Sviluppare un'organizzazione snella ed efficiente, facile da replicare e migliorare negli anni successivi.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Sviluppo Anni Successivi (Crescita e Consolidamento)</h4>
+                <ul>
+                    <li><strong>Miglioramento Collaborazione Sagra:</strong> Integrazione più profonda con la sagra locale per massimizzare l'affluenza e l'offerta di intrattenimento/cibo.</li>
+                    <li><strong>Ampliamento Bacino d'Utenza:</strong> Valutare la possibilità di coinvolgere scuole e ragazzi da comuni limitrofi, sempre mantenendo il focus sulla fascia d'età.</li>
+                    <li><strong>Diversificazione Fonti di Entrata:</strong> Incrementare le altre entrate (lotteria, merchandising, sponsorizzazioni di servizi) per aumentare il margine.</li>
+                    <li><strong>Incremento Graduale:</strong> Aumentare leggermente il numero di squadre o la durata dell'evento, con l'obiettivo di migliorare progressivamente i margini operativi.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- SEZIONE RECENSIONI -->
-  <section id="recensioni">
-    <h2>Recensioni</h2>
-    <div class="review-slider">
-      <div class="review-slider-inner">
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/60?img=12" alt="Foto recensione 1" />
-          <div class="review-text">
-            <h4>Mario Rossi</h4>
-            <p>Ottimo lavoro, preciso e creativo! Consigliatissimo.</p>
-            <div class="stars">★★★★★</div>
-          </div>
+    <!-- Pagina 5: Misurazione e Controllo -->
+    <div class="page">
+        <div class="section-header">MISURAZIONE E CONTROLLO</div>
+        <div class="section-title">Metriche di Successo</div>
+        <div class="two-column">
+            <div class="info-card">
+                <h4>Partecipazione e Coinvolgimento</h4>
+                <ul>
+                    <li>Numero effettivo di squadre iscritte e giovani partecipanti.</li>
+                    <li>Feedback informali e diretti dei ragazzi e dei loro genitori/accompagnatori sulla soddisfazione del torneo.</li>
+                    <li>Livello di coinvolgimento delle famiglie e della comunità locale, visibile durante le partite e soprattutto alla sagra finale.</li>
+                    <li>Stima del numero di presenze totali durante l'evento, con picco alla giornata finale.</li>
+                    <li>Interazioni e visualizzazioni sui contenuti social (es. video più visti, commenti positivi).</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Visibilità e Ritorno</h4>
+                <ul>
+                    <li>Numero di menzioni e articoli sui media locali (giornali, siti, radio).</li>
+                    <li>Qualità della visibilità ottenuta per gli sponsor e feedback diretto da parte loro.</li>
+                    <li>Estensione del "passaparola positivo" nella comunità e nelle scuole.</li>
+                    <li>Interesse dimostrato per l'edizione successiva già al termine di questa.</li>
+                    <li>Analisi dei costi/benefici delle attività di marketing e sponsorizzazione per ottimizzare le future edizioni.</li>
+                </ul>
+            </div>
         </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/60?img=32" alt="Foto recensione 2" />
-          <div class="review-text">
-            <h4>Anna Bianchi</h4>
-            <p>Professionale e puntuale, super soddisfatta del risultato.</p>
-            <div class="stars">★★★★☆</div>
-          </div>
+        <div class="section-title">Analisi e Reporting</div>
+        <div class="info-card">
+            <h4>Report Post-Evento (Semplificato e Orientato al Futuro)</h4>
+            <ul>
+                <li><strong>Rendiconto Economico:</strong> Sintesi delle spese effettive e delle entrate totali, confrontate con le proiezioni iniziali per valutare il margine raggiunto.</li>
+                <li><strong>Documentazione Fotografica e Video:</strong> Raccolta delle foto e dei video dell'evento (anche quelli creati per i social), da usare come ricordo e per presentazioni future (es. a potenziali nuovi sponsor).</li>
+                <li><strong>Rapporto sulle Attività:</strong> Breve descrizione delle attività svolte, delle sfide incontrate e delle soluzioni adottate, inclusi i risultati delle attività social.</li>
+                <li><strong>Ringraziamenti:</strong> Elenco di tutti i partecipanti, volontari, sponsor, partner e la sagra, con un ringraziamento sincero per il loro contributo.</li>
+                <li><strong>Punti di Forza e Aree di Miglioramento:</strong> Un'analisi interna per capire cosa ha funzionato bene e cosa può essere ottimizzato per le edizioni future, in un'ottica di crescita sostenibile e incremento del margine.</li>
+            </ul>
         </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/60?img=45" alt="Foto recensione 3" />
-          <div class="review-text">
-            <h4>Luca Verdi</h4>
-            <p>Consiglio vivamente per qualità e cortesia.</p>
-            <div class="stars">★★★★★</div>
-          </div>
+        <div class="section-title">Contatti</div>
+        <div class="contact-info">
+            <p>Per ulteriori informazioni o per proporre una collaborazione, si prega di contattare:</p>
+            <p><strong>[Nome Responsabile Organizzativo]</strong><br>
+            [Telefono]<br>
+            [Email]<br>
+            [Eventuale Pagina Web/Canale di Comunicazione dell'Evento]</p>
         </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/60?img=27" alt="Foto recensione 4" />
-          <div class="review-text">
-            <h4>Giulia Neri</h4>
-            <p>Esperienza fantastica, sempre disponibile e preparato.</p>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/60?img=52" alt="Foto recensione 5" />
-          <div class="review-text">
-            <h4>Marco Bassi</h4>
-            <p>Rapido e preciso, qualità altissima.</p>
-            <div class="stars">★★★★☆</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <!-- SEZIONE CONTATTAMI -->
-  <!-- La sezione contatti la togliamo da qui, ora sarà nella pagina contatti.html -->
-
-  <footer>
-    &copy; 2025 - altonez - Portfolio Grafico 
-  </footer>
-
-  <script src="script.js"></script>
+</div>
 </body>
 </html>
